@@ -1,19 +1,16 @@
-const APP = {
-
-nombre:"Quiniela Conoce-T",
-
-temporada:"Rumbo al Mundial 2026",
-
-jornada:1,
-
-partido:{
-
-local:"México",
-
-visitante:"Suiza"
-
-},
-
-estado:"ABIERTA"
-
+const CONFIG = {
+  jornada: 1,
+  local: {
+    nombre: "México",
+    bandera: "🇲🇽"
+  },
+  visitante: {
+    nombre: "Sudáfrica",
+    bandera: "🇿🇦"
+  },
+  fecha: "11 de junio de 2026",
+  torneo: "COPA MUNDIAL 2026",
+  abierto: true  // false = cierra pronósticos
 };
+
+export default CONFIG;

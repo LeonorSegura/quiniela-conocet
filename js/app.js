@@ -1,4 +1,5 @@
 import { guardarPronostico } from "../utils/storage.js";
+import CONFIG from "../data/config.js";
 
 // ── Página: participar.html ──
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,13 +28,21 @@ function actualizar() {
   if (rv) rv.innerText = golesRival;
 }
 
-window.masMexico   = function() { golesMexico++; actualizar(); };
-window.menosMexico = function() { if (golesMexico > 0) { golesMexico--; actualizar(); } };
-window.masRival    = function() { golesRival++; actualizar(); };
-window.menosRival  = function() { if (golesRival > 0) { golesRival--; actualizar(); } };
-
 function initPronostico() {
   actualizar();
+
+  // Mostrar info del partido desde CONFIG
+  const localNombre = document.getElementById("local");
+  const visitanteNombre = document.getElementById("visitante");
+  const localBandera = document.getElementById("localBandera");
+  const visitanteBandera = document.getElementById("visitanteBandera");
+  const jornadaTexto = document.getElementById("jornadaTexto");
+
+  if (localNombre) localNombre.innerText = CONFIG.local.nombre;
+  if (visitanteNombre) visitanteNombre.innerText = CONFIG.visitante.nombre;
+  if (localBandera) localBandera.innerText = CONFIG.local.bandera;
+  if (visitanteBandera) visitanteBandera.innerText = CONFIG.visitante.bandera;
+  if (jornadaTexto) jornadaTexto.innerText = `⚽ JORNADA ${CONFIG.jornada} · ${CONFIG.torneo}`;
 
   const saludo = document.getElementById("saludo");
   if (saludo) {
@@ -41,52 +50,16 @@ function initPronostico() {
     saludo.innerHTML = `Hola <b>${nombre}</b>, elige tu marcador.`;
   }
 
-  const btnMasMexico   = document.getElementById("masMexico");
-  const btnMenosMexico = document.getElementById("menosMexico");
-  const btnMasRival    = document.getElementById("masRival");
-  const btnMenosRival  = document.getElementById("menosRival");
-
-  if (btnMasMexico)   btnMasMexico.addEventListener("click",   () => { golesMexico++; actualizar(); });
-  if (btnMenosMexico) btnMenosMexico.addEventListener("click", () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
-  if (btnMasRival)    btnMasRival.addEventListener("click",    () => { golesRival++; actualizar(); });
-  if (btnMenosRival)  btnMenosRival.addEventListener("click",  () => { if (golesRival > 0) { golesRival--; actualizar(); } });
-
-  const btnEnviar = document.getElementById("btnEnviar");
-  if (btnEnviar) {
-    btnEnviar.addEventListener("click", async () => {
-      const jugador = localStorage.getItem("jugador") || "Invitado";
-      const datos = {
-        jugador,
-        golesLocal: golesMexico,
-        golesVisitante: golesRival,
-        fecha: new Date().toISOString()
-      };
-      await guardarPronostico(datos);
-localStorage.setItem("golesLocal", golesMexico);
-localStorage.setItem("golesVisitante", golesRival);
-window.location.href = "confirmacion.html";
-    });
+  // Verificar si está abierto
+  if (!CONFIG.abierto) {
+    const btnEnviar = document.getElementById("btnEnviar");
+    if (btnEnviar) {
+      btnEnviar.disabled = true;
+      btnEnviar.innerText = "⛔ PRONÓSTICOS CERRADOS";
+      btnEnviar.style.background = "#666";
+    }
+    return;
   }
-}
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initPronostico);
-} else {
-  initPronostico();
-}
-
-// ── Página: confirmacion.html ──
-document.addEventListener("DOMContentLoaded", () => {
-  const resumen = document.getElementById("resumen");
-  if (!resumen) return;
-  const jugador = localStorage.getItem("jugador") || "Invitado";
-  const local = parseInt(localStorage.getItem("golesLocal")) || 0;
-  const visitante = parseInt(localStorage.getItem("golesVisitante")) || 0;
-  resumen.innerHTML = `
-    <div class="coffee">
-      <h2>👤 ${jugador}</h2><br>
-      🇲🇽 México ${local} - ${visitante} Sudáfrica 🇿🇦<br><br>
-      ✅ Pronóstico guardado
-    </div>
-  `;
-});
+  const btnMasMexico   = document.getElementById("masMexico");
+  const btnMenosMexico = document.getEle
