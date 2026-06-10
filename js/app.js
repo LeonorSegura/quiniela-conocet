@@ -62,7 +62,9 @@ function initPronostico() {
         fecha: new Date().toISOString()
       };
       await guardarPronostico(datos);
-      window.location.href = "confirmacion.html";
+localStorage.setItem("golesLocal", golesMexico);
+localStorage.setItem("golesVisitante", golesRival);
+window.location.href = "confirmacion.html";
     });
   }
 }
@@ -78,9 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const resumen = document.getElementById("resumen");
   if (!resumen) return;
   const jugador = localStorage.getItem("jugador") || "Invitado";
+  const local = parseInt(localStorage.getItem("golesLocal")) || 0;
+  const visitante = parseInt(localStorage.getItem("golesVisitante")) || 0;
   resumen.innerHTML = `
     <div class="coffee">
       <h2>👤 ${jugador}</h2><br>
+      ⚽ México ${local} - ${visitante} Suiza<br><br>
       ✅ Pronóstico guardado
     </div>
   `;

@@ -4,12 +4,20 @@ import {
   addDoc,
   getDocs,
   orderBy,
-  query
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // Guardar pronóstico en Firestore
 async function guardarPronostico(datos) {
   try {
+    // Verificar si ya participó
+    const q = query(collection(db, "pronosticos"), where("jugador", "==", datos.jugador));
+    const existe = await getDocs(q);
+    if (!existe.empty) {
+      alert("⚠️ " + datos.jugador + " ya registró su pronóstico.");
+      return false;
+    }
     await addDoc(collection(db, "pronosticos"), {
       jugador: datos.jugador,
       golesLocal: datos.golesLocal,
@@ -17,8 +25,10 @@ async function guardarPronostico(datos) {
       fecha: new Date().toISOString()
     });
     console.log("Pronóstico guardado ✅");
+    return true;
   } catch (error) {
     console.error("Error al guardar:", error);
+    return false;
   }
 }
 
