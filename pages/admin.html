@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Quiniela Conoce-T</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="background"></div>
+<div class="hero">
+<div class="glass">
+
+<div class="edition">🔐 PANEL ADMIN</div>
+
+<h1><span>INGRESAR</span>RESULTADO</h1>
+
+<p class="subtitle">Solo tú puedes ver esta página</p>
+
+<div style="margin-top:30px;">
+  <p style="color:#c8d0da;margin-bottom:10px;">🇲🇽 Goles México</p>
+  <input id="golesLocalReal" type="number" min="0" value="0" class="nombre">
+</div>
+
+<div style="margin-top:20px;">
+  <p style="color:#c8d0da;margin-bottom:10px;">🇿🇦 Goles Sudáfrica</p>
+  <input id="golesVisitanteReal" type="number" min="0" value="0" class="nombre">
+</div>
+
+<button id="btnCalcular" class="startButton" style="margin-top:30px;">
+  CALCULAR PUNTOS
+</button>
+
+<div id="resultadoAdmin" style="margin-top:20px;"></div>
+
+</div>
+</div>
+
+<script type="module" src="../js/admin.js"></script>
+</body>
+</html>
