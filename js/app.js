@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resumen.innerHTML = `
     <div class="coffee">
       <h2>👤 ${jugador}</h2><br>
-      ⚽ México ${local} - ${visitante} Suiza<br><br>
+      🇲🇽 México ${local} - ${visitante} Sudáfrica 🇿🇦<br><br>
       ✅ Pronóstico guardado
     </div>
   `;

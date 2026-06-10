@@ -20,9 +20,9 @@ linear-gradient(
 #07111F,
 #0B1E35);
 
-overflow:hidden;
+overflow-y:auto;
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 
