@@ -8,15 +8,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   contenedor.innerHTML = `<p style="text-align:center;color:#fff;">Cargando...</p>`;
 
   try {
-    // Ranking general acumulado
     const general = await obtenerRankingGeneral();
 
     if (general.length === 0) {
-      contenedor.innerHTML = `
-        <div class="coffee">
-          Todavía no hay participantes registrados.
-        </div>
-      `;
+      contenedor.innerHTML = `<div class="coffee">Todavía no hay participantes registrados.</div>`;
       return;
     }
 
@@ -38,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
     });
 
-    // Pronósticos de la jornada actual
     const jornada = await obtenerPronosticos(CONFIG.jornada);
     if (jornada.length > 0) {
       html += `
@@ -46,4 +40,21 @@ document.addEventListener("DOMContentLoaded", async () => {
           <b>⚽ JORNADA ${CONFIG.jornada} — ${CONFIG.local.nombre} vs ${CONFIG.visitante.nombre}</b>
         </div>
       `;
-      jorna
+      jornada.forEach(item => {
+        html += `
+          <div class="coffee">
+            👤 <b>${item.jugador}</b><br><br>
+            ${CONFIG.local.bandera} ${item.golesLocal} - ${item.golesVisitante} ${CONFIG.visitante.bandera}<br>
+            ⭐ ${item.puntos} puntos
+          </div>
+        `;
+      });
+    }
+
+    contenedor.innerHTML = html;
+
+  } catch(e) {
+    console.error("Error ranking:", e);
+    contenedor.innerHTML = `<div class="coffee">❌ Error al cargar el ranking</div>`;
+  }
+});
