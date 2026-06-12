@@ -10,7 +10,7 @@ const CONFIG = {
   },
   fecha: "11 de junio de 2026",
   torneo: "COPA MUNDIAL 2026",
-  abierto: true  // false = cierra pronósticos
+  abierto: false  // false = cierra pronósticos
 };
 
 export default CONFIG;
