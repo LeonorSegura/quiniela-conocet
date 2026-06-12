@@ -1,16 +1,16 @@
 const CONFIG = {
-  jornada: 1,
+  jornada: 2,
   local: {
     nombre: "México",
     bandera: "🇲🇽"
   },
   visitante: {
-    nombre: "Sudáfrica",
-    bandera: "🇿🇦"
+    nombre: "Corea del Sur",
+    bandera: "🇰🇷"
   },
-  fecha: "11 de junio de 2026",
+  fecha: "18 de junio de 2026",
   torneo: "COPA MUNDIAL 2026",
-  abierto: false  // false = cierra pronósticos
+  abierto: true
 };
 
 export default CONFIG;
