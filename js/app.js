@@ -31,21 +31,6 @@ function actualizar() {
 function initPronostico() {
   actualizar();
 
-  const btnMasLocal      = document.getElementById("masLocal");
-const btnMenosLocal    = document.getElementById("menosLocal");
-const btnMasVisitante  = document.getElementById("masVisitante");
-const btnMenosVisitante= document.getElementById("menosVisitante");
-
-const btnMasMexico   = document.getElementById("masMexico");
-const btnMenosMexico = document.getElementById("menosMexico");
-const btnMasChequia  = document.getElementById("masChequia");
-const btnMenosChequia= document.getElementById("menosChequia");
-
-if (btnMasMexico)    btnMasMexico.addEventListener("click",    () => { golesMexico++; actualizar(); });
-if (btnMenosMexico)  btnMenosMexico.addEventListener("click",  () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
-if (btnMasChequia)   btnMasChequia.addEventListener("click",   () => { golesRival++; actualizar(); });
-if (btnMenosChequia) btnMenosChequia.addEventListener("click", () => { if (golesRival > 0) { golesRival--; actualizar(); } });
-
   const saludo = document.getElementById("saludo");
   if (saludo) {
     const nombre = localStorage.getItem("jugador") || "Participante";
@@ -62,15 +47,15 @@ if (btnMenosChequia) btnMenosChequia.addEventListener("click", () => { if (goles
     return;
   }
 
-  const btnMasMexico   = document.getElementById("masMexico");
-  const btnMenosMexico = document.getElementById("menosMexico");
-  const btnMasRival    = document.getElementById("masRival");
-  const btnMenosRival  = document.getElementById("menosRival");
+  const btnMasMexico    = document.getElementById("masMexico");
+  const btnMenosMexico  = document.getElementById("menosMexico");
+  const btnMasChequia   = document.getElementById("masChequia");
+  const btnMenosChequia = document.getElementById("menosChequia");
 
-  if (btnMasMexico)   btnMasMexico.addEventListener("click",   () => { golesMexico++; actualizar(); });
-  if (btnMenosMexico) btnMenosMexico.addEventListener("click", () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
-  if (btnMasRival)    btnMasRival.addEventListener("click",    () => { golesRival++; actualizar(); });
-  if (btnMenosRival)  btnMenosRival.addEventListener("click",  () => { if (golesRival > 0) { golesRival--; actualizar(); } });
+  if (btnMasMexico)    btnMasMexico.addEventListener("click",    () => { golesMexico++; actualizar(); });
+  if (btnMenosMexico)  btnMenosMexico.addEventListener("click",  () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
+  if (btnMasChequia)   btnMasChequia.addEventListener("click",   () => { golesRival++; actualizar(); });
+  if (btnMenosChequia) btnMenosChequia.addEventListener("click", () => { if (golesRival > 0) { golesRival--; actualizar(); } });
 
   const btnEnviar = document.getElementById("btnEnviar");
   if (btnEnviar) {
