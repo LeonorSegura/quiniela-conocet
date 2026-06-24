@@ -31,17 +31,15 @@ function actualizar() {
 function initPronostico() {
   actualizar();
 
-  const localNombre = document.getElementById("local");
-  const visitanteNombre = document.getElementById("visitante");
-  const localBandera = document.getElementById("localBandera");
-  const visitanteBandera = document.getElementById("visitanteBandera");
-  const jornadaTexto = document.getElementById("jornadaTexto");
+  const btnMasLocal      = document.getElementById("masLocal");
+const btnMenosLocal    = document.getElementById("menosLocal");
+const btnMasVisitante  = document.getElementById("masVisitante");
+const btnMenosVisitante= document.getElementById("menosVisitante");
 
-  if (localNombre) localNombre.innerText = CONFIG.local.nombre;
-  if (visitanteNombre) visitanteNombre.innerText = CONFIG.visitante.nombre;
-  if (localBandera) localBandera.innerText = CONFIG.local.bandera;
-  if (visitanteBandera) visitanteBandera.innerText = CONFIG.visitante.bandera;
-  if (jornadaTexto) jornadaTexto.innerText = `⚽ JORNADA ${CONFIG.jornada} · ${CONFIG.torneo}`;
+if (btnMasLocal)      btnMasLocal.addEventListener("click",      () => { golesMexico++; actualizar(); });
+if (btnMenosLocal)    btnMenosLocal.addEventListener("click",    () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
+if (btnMasVisitante)  btnMasVisitante.addEventListener("click",  () => { golesRival++; actualizar(); });
+if (btnMenosVisitante)btnMenosVisitante.addEventListener("click",() => { if (golesRival > 0) { golesRival--; actualizar(); } });
 
   const saludo = document.getElementById("saludo");
   if (saludo) {
