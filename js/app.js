@@ -66,8 +66,8 @@ function initPronostico() {
         jornada: CONFIG.jornada,
         local: CONFIG.local.nombre,
         visitante: CONFIG.visitante.nombre,
-        golesLocal: golesRival,
-        golesVisitante: golesMexico,
+        golesLocal: golesMexico,
+        golesVisitante: golesRival,
         fecha: new Date().toISOString()
       };
       const guardado = await guardarPronostico(datos);
