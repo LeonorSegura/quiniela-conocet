@@ -36,10 +36,10 @@ const btnMenosLocal    = document.getElementById("menosLocal");
 const btnMasVisitante  = document.getElementById("masVisitante");
 const btnMenosVisitante= document.getElementById("menosVisitante");
 
-if (btnMasLocal)      btnMasLocal.addEventListener("click",      () => { golesMexico++; actualizar(); });
-if (btnMenosLocal)    btnMenosLocal.addEventListener("click",    () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
-if (btnMasVisitante)  btnMasVisitante.addEventListener("click",  () => { golesRival++; actualizar(); });
-if (btnMenosVisitante)btnMenosVisitante.addEventListener("click",() => { if (golesRival > 0) { golesRival--; actualizar(); } });
+if (btnMasLocal)      btnMasLocal.addEventListener("click",      () => { golesRival++; actualizar(); });
+if (btnMenosLocal)    btnMenosLocal.addEventListener("click",    () => { if (golesRival > 0) { golesRival--; actualizar(); } });
+if (btnMasVisitante)  btnMasVisitante.addEventListener("click",  () => { golesMexico++; actualizar(); });
+if (btnMenosVisitante)btnMenosVisitante.addEventListener("click",() => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
 
   const saludo = document.getElementById("saludo");
   if (saludo) {
