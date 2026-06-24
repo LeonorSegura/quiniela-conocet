@@ -10,7 +10,7 @@ const CONFIG = {
   },
   fecha: "18 de junio de 2026",
   torneo: "COPA MUNDIAL 2026",
-  abierto: true
+  abierto: false
 };
 
 export default CONFIG;
