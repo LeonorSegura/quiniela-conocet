@@ -1,16 +1,16 @@
 const CONFIG = {
-  jornada: 3,
+  jornada: 4,
   local: {
     nombre: "México",
     bandera: "🇲🇽"
   },
   visitante: {
-    nombre: "Chequia",
-    bandera: "🇨🇿"
+    nombre: "Ecuador",
+    bandera: "🇪🇨"
   },
-  fecha: "24 de junio de 2026",
+  fecha: "28 de junio de 2026",
   torneo: "COPA MUNDIAL 2026",
-  abierto: false
+  abierto: true
 };
 
 export default CONFIG;

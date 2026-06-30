@@ -49,8 +49,8 @@ function initPronostico() {
 
   const btnMasMexico    = document.getElementById("masMexico");
   const btnMenosMexico  = document.getElementById("menosMexico");
-  const btnMasChequia   = document.getElementById("masChequia");
-  const btnMenosChequia = document.getElementById("menosChequia");
+  const btnMasChequia   = document.getElementById("masEcuador");
+const btnMenosChequia = document.getElementById("menosEcuador");
 
   if (btnMasMexico)    btnMasMexico.addEventListener("click",    () => { golesMexico++; actualizar(); });
   if (btnMenosMexico)  btnMenosMexico.addEventListener("click",  () => { if (golesMexico > 0) { golesMexico--; actualizar(); } });
