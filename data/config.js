@@ -8,8 +8,8 @@ const CONFIG = {
     nombre: "Ecuador",
     bandera: "🇪🇨"
   },
-  fecha: "28 de junio de 2026",
-  torneo: "COPA MUNDIAL 2026",
+  fecha: "30 de junio de 2026",
+  torneo: "DIECISEISAVOS DE FINAL · COPA MUNDIAL FIFA",
   abierto: true
 };
 
