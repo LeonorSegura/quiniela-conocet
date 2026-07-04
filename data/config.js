@@ -6,7 +6,7 @@ const CONFIG = {
   },
   visitante: {
     nombre: "Inglaterra",
-    bandera: "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+    bandera: "🇬🇧"
   },
   fecha: "por confirmar",
   torneo: "CUARTOS DE FINAL · COPA MUNDIAL FIFA",
