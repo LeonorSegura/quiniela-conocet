@@ -10,7 +10,7 @@ const CONFIG = {
   },
   fecha: "30 de junio de 2026",
   torneo: "DIECISEISAVOS DE FINAL · COPA MUNDIAL FIFA",
-  abierto: true
+  abierto: false
 };
 
 export default CONFIG;
