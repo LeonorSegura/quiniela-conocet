@@ -10,7 +10,7 @@ const CONFIG = {
   },
   fecha: "por confirmar",
   torneo: "CUARTOS DE FINAL · COPA MUNDIAL FIFA",
-  abierto: true
+  abierto: false
 };
 
 export default CONFIG;
